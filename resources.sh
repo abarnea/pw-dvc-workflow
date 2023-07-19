@@ -1,0 +1,1 @@
+export clustername=cloud1
