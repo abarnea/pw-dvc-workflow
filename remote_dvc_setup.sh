@@ -13,20 +13,24 @@ conda activate dvc_env
 
 pip install google-auth-oauthlib==0.5.3
 
-if [ -d "pw-dvc-demo" ]
+REPO_NAME=$1
+
+if [ -d $REPO_NAME ]
 then
-    rm -rf pw-dvc-demo
+    rm -rf $REPO_NAME
 fi
 
-URL="https://github.com/abarnea/pw-dvc-demo.git"
+URL="https://github.com/abarnea/${REPO_NAME}.git"
 
 git clone $URL
 
-cd pw-dvc-demo
+cd $REPO_NAME
 
 source /home/$USER/storage_bucket.env
 
-dvc remote modify --local mystorage credentialpath $STORAGE_PATH
+STORAGE_NAME="mystorage"
+
+dvc remote modify --local $STORAGE_NAME credentialpath $STORAGE_PATH
 
 dvc repro --pull
 
