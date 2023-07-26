@@ -146,7 +146,15 @@ f_install_env() {
         conda install -y -c conda-forge pandas
         conda install -y -c conda-forge pyaml
         conda install -y -c conda-forge scikit-learn
+
+        # Semantic Search requirements
         conda install -y -c conda-forge gensim
+        conda install -y -c conda-forge markdown
+        conda install -y -c conda-forge bs4
+        conda install -y -c conda-forge dotenv
+        conda install -y -c conda-forge spellchecker
+        conda install -y -c conda-forge nltk
+        conda install -y -c conda-forge openai
 
         pip install scipy
 
