@@ -28,7 +28,7 @@ cd $REPO_NAME
 
 source /home/$USER/storage_bucket.env
 
-STORAGE_NAME="mystorage"
+STORAGE_NAME="storage"
 
 dvc remote modify --local $STORAGE_NAME credentialpath $STORAGE_PATH
 
