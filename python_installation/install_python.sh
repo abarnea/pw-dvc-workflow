@@ -146,6 +146,7 @@ f_install_env() {
         conda install -y -c conda-forge pandas
         conda install -y -c conda-forge pyaml
         conda install -y -c conda-forge scikit-learn
+        conda install -y -c conda-forge gensim
 
         pip install scipy
 
