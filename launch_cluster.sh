@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPO_NAME=$1
+source inputs.sh
 
 if [ ! -f "storage_bucket.env" ]
 then

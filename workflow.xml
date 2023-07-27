@@ -10,6 +10,13 @@
         help='Enter the DVC-configured Github repository that you would like to run'
     ></param>
     <param
+        name='GIT_USERNAME'
+        label='Github Username'
+        type='text'
+        value='parallelworks'
+        help='Enter the username of the owner of the above Github repository.'
+    ></param>
+    <param
         name='clustername'
         label='Resource Name'
         type='computeResource'
