@@ -142,15 +142,17 @@ f_install_env() {
         conda install -y -c conda-forge dvclive>=2.0
 
         # ML model requirements
-        conda install -y -c conda-forge matplotlib
-        conda install -y -c conda-forge pandas
-        conda install -y -c conda-forge pyaml
-        conda install -y -c conda-forge scikit-learn
+        # conda install -y -c conda-forge matplotlib
+        # conda install -y -c conda-forge pandas
+        # conda install -y -c conda-forge pyaml
+        # conda install -y -c conda-forge scikit-learn
 
         # Semantic Search requirements
+        conda install -y -c conda-forge scikit-learn
         conda install -y -c conda-forge gensim
         conda install -y -c conda-forge markdown
         conda install -y -c conda-forge bs4
+        conda install -y -c conda-forge html5lib
         conda install -y -c conda-forge nltk
         conda install -y -c conda-forge openai
         conda install -y -c conda-forge python-dotenv
