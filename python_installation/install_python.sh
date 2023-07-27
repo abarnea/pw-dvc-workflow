@@ -151,16 +151,15 @@ f_install_env() {
         conda install -y -c conda-forge gensim
         conda install -y -c conda-forge markdown
         conda install -y -c conda-forge bs4
-        conda install -y -c conda-forge dotenv
-        conda install -y -c conda-forge spellchecker
         conda install -y -c conda-forge nltk
         conda install -y -c conda-forge openai
-
-        pip install scipy
+        conda install -y -c conda-forge python-dotenv
+        conda install -y -c conda-forge pyspellchecker
+        conda install -y -c conda-forge scipy
 
         # Write out the ${my_env}_requirements.yml to document environment
         conda env export > ${env_filename}
-        scp -q ${env_filename} usercontainer:${localpath}
+        scp -q ${env_filename} usercontainer:${localpath}/python_installation
         rm ${env_filename}
     fi
 }
