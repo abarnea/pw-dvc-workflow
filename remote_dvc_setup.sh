@@ -53,7 +53,7 @@ then
     dvc push
 else
     # Pulls any new DVC data
-    dvc pull
+    dvc pull -r $storage_name
     # Runs the user configured script
     bash $user_script_name
 fi
