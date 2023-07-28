@@ -10,7 +10,7 @@ handle_error() {
 }
 
 # Set the miniconda directory and activates the dvc conda environment
-miniconda_dir="${resource_workdir}/.miniconda3"
+miniconda_dir="/home/${USER}/.miniconda3"
 source ${miniconda_dir}/etc/profile.d/conda.sh
 conda activate dvc_env
 
