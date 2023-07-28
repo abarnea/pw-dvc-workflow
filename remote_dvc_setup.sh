@@ -10,7 +10,7 @@ handle_error() {
 }
 
 # Set the miniconda directory and activates the dvc conda environment
-miniconda_dir="/home/${USER}/.miniconda3"
+miniconda_dir="${resource_workdir}/.miniconda3"
 source ${miniconda_dir}/etc/profile.d/conda.sh
 conda activate dvc_env
 
@@ -44,9 +44,16 @@ cd $repo_name
 # Cluster configuration
 dvc remote modify --local ${storage_name} credentialpath ${storage_bucket_path}
 
-# Pulls any new DVC data and reproduces the ML model training pipeline
-dvc repro --pull
-
-# Push the newly trained ML model back to cloud storage according to the
-# initially set cloud storage bucket path
-dvc push
+if [ $model_setting = true ]
+then
+    # Pulls any new DVC data and reproduces the ML model training pipeline
+    dvc repro --pull
+    # Push the newly trained ML model back to cloud storage according to the
+    # initially set cloud storage bucket path
+    dvc push
+else
+    # Pulls any new DVC data
+    dvc pull
+    # Runs the user configured script
+    bash $user_script_name
+fi
