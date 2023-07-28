@@ -9,6 +9,9 @@ handle_error() {
     exit 1
 }
 
+# Get inputted variables from workflow.xml user interface
+source inputs.sh
+
 # Set the miniconda directory and activates the dvc conda environment
 miniconda_dir="${resource_workdir}/.miniconda3"
 source ${miniconda_dir}/etc/profile.d/conda.sh
@@ -17,9 +20,6 @@ conda activate dvc_env
 # Downgrade version of google-auth-oauthlib to 0.5.3 as
 # Normal installation doesn't work correctly
 pip install google-auth-oauthlib==0.5.3
-
-# Get inputted variables from workflow.xml user interface
-source inputs.sh
 
 # Deletes a cloned copy of the input repository if it exists
 # Otherwise, continues
