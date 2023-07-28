@@ -17,7 +17,7 @@
         help='Enter the username of the owner of the above Github repository.'
     ></param>
     <param
-        name='cluster'
+        name='resource'
         label='Resource Name'
         type='computeResource'
         value='Resource'
