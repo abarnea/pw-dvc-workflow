@@ -146,6 +146,7 @@ f_install_env() {
         # conda install -y -c conda-forge pandas
         # conda install -y -c conda-forge pyaml
         # conda install -y -c conda-forge scikit-learn
+        # conda install -y -c conda-forge scipy
 
         # Semantic Search requirements
         conda install -y -c conda-forge scikit-learn
@@ -157,7 +158,7 @@ f_install_env() {
         conda install -y -c conda-forge openai
         conda install -y -c conda-forge python-dotenv
         conda install -y -c conda-forge pyspellchecker
-        conda install -y -c conda-forge scipy
+        conda install -y -c conda-forge streamlit
 
         # Write out the ${my_env}_requirements.yml to document environment
         conda env export > ${env_filename}
