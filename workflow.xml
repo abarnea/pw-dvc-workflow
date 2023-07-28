@@ -23,21 +23,12 @@
         value='Resource'
         help='Select a resource to run your DVC-configured Github repository on'
     ></param>
-    <section name='storage' type='section' title='Storage Configuration' expanded='true'>
     <param
-        name='name'
+        name='storage_name'
         label='DVC Remote Storage Name'
         type='text'
         value='mystorage'
         help='Type the name of your DVC-configured remote storage.'
     ></param>
-        <param
-        name='path'
-        label='Bucket Storage Path'
-        type='text'
-        value='/contrib/user/service-accounts/demo-bucket.json'
-        help='Type the absolute path of your remote storage bucket.'
-    ></param>
-    </section>
   </inputs>
 </tool>
