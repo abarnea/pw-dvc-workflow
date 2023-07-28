@@ -23,7 +23,7 @@
         value='Resource'
         help='Select a resource to run your DVC-configured Github repository on'
     ></param>
-    <section name='storage' type='section' title='Storage Configuration' expanded='true'>
+    <section name='' type='section' title='Storage Configuration' expanded='true'>
     <param
         name='STORAGE_NAME'
         label='DVC Remote Storage Name'
