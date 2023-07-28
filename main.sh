@@ -7,7 +7,7 @@
 # fi
 
 # Clone the pw-dvc-workflow DVC workflow wrapper Github repository
-git clone https://github.com/abarnea/pw-dvc-workflow.git .
+# git clone https://github.com/abarnea/pw-dvc-workflow.git .
 
 # Launches the cluster startup script
 ./launch_cluster.sh
