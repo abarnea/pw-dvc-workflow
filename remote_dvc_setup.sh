@@ -38,7 +38,7 @@ git clone $URL
 cd $repo_name
 
 # Sets the cloud storage bucket path
-source ${resource_workdir}/storage_bucket.env
+# source ${resource_workdir}/storage_bucket.env
 
 # Modifies the DVC remote storage path and credentials to account for the
 # Cluster configuration
