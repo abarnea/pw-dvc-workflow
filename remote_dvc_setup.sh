@@ -10,7 +10,7 @@ handle_error() {
 }
 
 # Set the miniconda directory and activates the dvc conda environment
-miniconda_dir="/home/${USER}/.miniconda3"
+miniconda_dir="${resource_workdir}/.miniconda3"
 source ${miniconda_dir}/etc/profile.d/conda.sh
 conda activate dvc_env
 
@@ -38,7 +38,7 @@ git clone $URL
 cd $repo_name
 
 # Sets the cloud storage bucket path
-source /home/$USER/storage_bucket.env
+source ${resource_workdir}/storage_bucket.env
 
 # Modifies the DVC remote storage path and credentials to account for the
 # Cluster configuration
