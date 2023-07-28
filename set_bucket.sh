@@ -18,7 +18,7 @@ touch storage_bucket.env
 
 # Sets the STORAGE_PATH environment variable and sends it into the storage
 # bucket environment file
-echo "STORAGE_PATH=\"${STORAGE_PATH}\"" > storage_bucket.env
+echo "STORAGE_PATH=\"${storage_path}\"" > storage_bucket.env
 
 # Thank you message
 echo

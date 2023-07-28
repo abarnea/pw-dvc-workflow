@@ -19,4 +19,4 @@ bash python_installation/install_python.sh $clustername
 scp $( pwd )/storage_bucket.env ${hostname}@${clustername}.clusters.pw:/home/${USER}
 
 # Starts the remote_dvc_setup script on the remote machine
-ssh ${clustername}.clusters.pw ${hostname} bash -s < remote_dvc_setup.sh $REPO_NAME
+ssh ${clustername}.clusters.pw ${hostname} bash -s < remote_dvc_setup.sh ${repo_name}

@@ -23,26 +23,26 @@ source inputs.sh
 
 # Deletes a cloned copy of the input repository if it exists
 # Otherwise, continues
-if [ -d $REPO_NAME ]
+if [ -d $repo_name ]
 then
-    rm -rf $REPO_NAME
+    rm -rf $repo_name
 fi
 
 # Grabs the inputted Github repository
-URL="git@github.com:/${GIT_USERNAME}/${REPO_NAME}.git"
+URL="git@github.com:/${git_username}/${repo_name}.git"
 
 # Clone the inputted repository from SSH URL
 git clone $URL
 
 # Sets the current directory to the cloned repository
-cd $REPO_NAME
+cd $repo_name
 
 # Sets the cloud storage bucket path
 source /home/$USER/storage_bucket.env
 
 # Modifies the DVC remote storage path and credentials to account for the
 # Cluster configuration
-dvc remote modify --local $STORAGE_NAME credentialpath $STORAGE_PATH
+dvc remote modify --local $storage_name credentialpath $storage_path
 
 # Pulls any new DVC data and reproduces the ML model training pipeline
 dvc repro --pull

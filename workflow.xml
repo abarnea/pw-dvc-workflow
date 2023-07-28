@@ -3,36 +3,36 @@
   <cancel interpreter='bash'>kill.sh</cancel>
   <inputs>
     <param 
-        name='REPO_NAME'
+        name='repo_name'
         label='Repository Name'
         type='text' 
         value='pw-dvc-demo'
         help='Enter the DVC-configured Github repository that you would like to run'
     ></param>
     <param
-        name='GIT_USERNAME'
+        name='git_username'
         label='Github Username'
         type='text'
         value='parallelworks'
         help='Enter the username of the owner of the above Github repository.'
     ></param>
     <param
-        name='clustername'
+        name='name'
         label='Resource Name'
         type='computeResource'
         value='Resource'
         help='Select a resource to run your DVC-configured Github repository on'
     ></param>
-    <section name='' type='section' title='Storage Configuration' expanded='true'>
+    <section name='storage' type='section' title='Storage Configuration' expanded='true'>
     <param
-        name='STORAGE_NAME'
+        name='name'
         label='DVC Remote Storage Name'
         type='text'
         value='mystorage'
         help='Type the name of your DVC-configured remote storage.'
     ></param>
         <param
-        name='STORAGE_PATH'
+        name='path'
         label='Bucket Storage Path'
         type='text'
         value='/contrib/user/service-accounts/demo-bucket.json'
