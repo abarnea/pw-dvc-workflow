@@ -16,7 +16,7 @@ source inputs.sh
 bash python_installation/install_python.sh ${resource_name}
 
 # Sends storage bucket path environment file to remote machine
-# scp $( pwd )/storage_bucket.env ${resource_username}@${resource_name}.clusters.pw:${resource_workdir}
+# scp $( pwd )/storage_bucket.env ${hostname}@${resource_name}.clusters.pw:${resource_workdir}
 
 # Starts the remote_dvc_setup script on the remote machine
-ssh ${resource_name}.clusters.pw ${resource_username} bash -s < remote_dvc_setup.sh ${repo_name}
+ssh ${resource_name}.clusters.pw ${hostname} bash -s < remote_dvc_setup.sh ${repo_name}

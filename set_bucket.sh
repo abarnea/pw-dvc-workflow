@@ -4,7 +4,7 @@
 source inputs.sh
 
 # Privately read the absolute path of the remote storage bucket
-# read -sp 'Please enter the absolute path of your remote storage bucket: ' storage_path
+read -sp 'Please enter the absolute path of your remote storage bucket: ' storage_path
 
 # Checks to see if a storage bucket path has been set. Deletes it if so,
 # as the newly inputted path will be given priority. Otherwise, continues
