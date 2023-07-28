@@ -42,7 +42,7 @@ cd $repo_name
 
 # Modifies the DVC remote storage path and credentials to account for the
 # Cluster configuration
-dvc remote modify --local ${storage_name} credentialpath ${bucket_storage_path}
+dvc remote modify --local ${storage_name} credentialpath ${storage_bucket_path}
 
 # Pulls any new DVC data and reproduces the ML model training pipeline
 dvc repro --pull
