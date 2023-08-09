@@ -30,10 +30,6 @@
         value='mystorage'
         help='Type the name of your DVC-configured remote storage.'
     ></param>
-    <tool id='NA' name='NA'>
-  <command interpreter='bash'>main.sh</command>
-  <cancel interpreter='bash'>kill.sh</cancel>
-  <inputs>
     <conditional name='model_setting_conditional'>
         <param
             name='model_setting'
