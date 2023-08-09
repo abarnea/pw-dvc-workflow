@@ -40,6 +40,8 @@
             label='ML Model Setting'
             help='Select whether you would like to train the ML model and push it to cloud, or download and run the model from cloud.'>
         </param>
+        <when value="Train">
+        </when>
         <when value="Run">
             <param
                 name='user_script_name'
