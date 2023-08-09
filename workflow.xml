@@ -38,8 +38,20 @@
             falsevalue='Run'
             checked='True'
             label='ML Model Setting'
-            help='Select whether you would like to train the ML model and push it to cloud, or download and run the model from cloud.'>
+            help='Select whether you would like to train the ML model and push it to cloud, or download and run the model from cloud.'
+            width="25%_none"
+            optional='true'
+            float="right">
         </param>
+        <when value="Train">
+            <param
+                name='hidden_parameter'
+                label='Hidden Parameter'
+                type='hidden'
+                value='There is no additional value when training.'
+                help='There is no additional parameter for training.'
+            ></param>
+        </when>
         <when value="Run">
             <param
                 name='user_script_name'
