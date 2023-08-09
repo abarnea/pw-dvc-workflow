@@ -30,21 +30,25 @@
         value='mystorage'
         help='Type the name of your DVC-configured remote storage.'
     ></param>
-    <param
-        name='model_setting'
-        type='boolean'
-        truevalue='Train'
-        falsevalue='Run'
-        checked='True'
-        label='ML Model Setting'
-        help='Select whether you would like to train the ML model and push it to cloud, or download and run the model from cloud.'>
-    </param>
-    <param
-        name='user_script_name'
-        label='Script to Run'
-        type='text'
-        value='run_script.sh'
-        help='Enter the script name which runs the ML model. Input is discarded if ML Model Setting is set to "Train".'
-    ></param>
+    <conditional name="ml_model_setting">
+        <param
+            name='model_setting'
+            type='boolean'
+            truevalue='Train'
+            falsevalue='Run'
+            checked='True'
+            label='ML Model Setting'
+            help='Select whether you would like to train the ML model and push it to cloud, or download and run the model from cloud.'>
+        </param>
+        <when value="Run">
+            <param
+                name='user_script_name'
+                label='Script to Run'
+                type='text'
+                value='run_script.sh'
+                help='Enter the script name which runs the ML model. Input is discarded if ML Model Setting is set to "Train".'
+            ></param>
+        </when>
+    </conditional>
   </inputs>
 </tool>
