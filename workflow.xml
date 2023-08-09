@@ -2,6 +2,7 @@
   <command interpreter='bash'>main.sh</command>
   <cancel interpreter='bash'>kill.sh</cancel>
   <inputs>
+  <section name="repo_setting" type='section' title="Repository Selection" expanded='true'>
     <param 
         name='repo_name'
         label='Repository Name'
@@ -16,19 +17,23 @@
         value='parallelworks'
         help='Enter the username of the owner of the above Github repository.'
     ></param>
-    <param
-        name='resource'
-        label='Resource Name'
-        type='computeResource'
-        value='Resource'
-        help='Select a resource to run your DVC-configured Github repository on.'
-    ></param>
+    </section>
+    <section name="storage_settings" type='section' title="Storage Settings" expanded='true'>
     <param
         name='storage_name'
         label='DVC Remote Storage Name'
         type='text'
         value='mystorage'
         help='Type the name of your DVC-configured remote storage.'
+    ></param>
+    </section>
+    <section name='model_setting' type='section' title='Model Settings' expanded='true'>
+    <param
+        name='resource'
+        label='Resource Name'
+        type='computeResource'
+        value='Resource'
+        help='Select a resource to run your DVC-configured Github repository on.'
     ></param>
     <conditional name='model_setting_conditional'>
         <param
@@ -51,5 +56,6 @@
                 ></param>
             </when>
     </conditional>
+    </section>
   </inputs>
 </tool>
