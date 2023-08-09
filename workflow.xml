@@ -27,7 +27,7 @@
         help='Type the name of your DVC-configured remote storage.'
     ></param>
     </section>
-    <section name='model_setting' type='section' title='Model Settings' expanded='true'>
+    <section name='model_config' type='section' title='Model Configurations' expanded='true'>
     <param
         name='resource'
         label='Resource Name'
