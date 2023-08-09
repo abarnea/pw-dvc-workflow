@@ -30,37 +30,30 @@
         value='mystorage'
         help='Type the name of your DVC-configured remote storage.'
     ></param>
+    <tool id='NA' name='NA'>
+  <command interpreter='bash'>main.sh</command>
+  <cancel interpreter='bash'>kill.sh</cancel>
+  <inputs>
     <conditional name='model_setting_conditional'>
         <param
             name='model_setting'
-            type='boolean'
-            truevalue='Train'
-            falsevalue='Run'
-            checked='True'
+            type='select'
             label='ML Model Setting'
             help='Select whether you would like to train the ML model and push it to cloud, or download and run the model from cloud.'
-            width='25%_none'
-            optional='true'
-            float='right'>
+            width='50%_none'
+            multiple='false'>
+            <option value='train' selected='true'>Train Model</option>
+            <option value='run'>Run Script</option>
         </param>
-        <when value='Train'>
-            <param
-                name='hidden_parameter'
-                label='Hidden Parameter'
-                type='hidden'
-                value='There is no additional value when training.'
-                help='There is no additional parameter for training.'
-            ></param>
-        </when>
-        <when value='Run'>
-            <param
-                name='user_script_name'
-                label='Script to Run'
-                type='text'
-                value='run_script.sh'
-                help='Enter the script name which runs the ML model. Input is discarded if ML Model Setting is set to "Train".'
-            ></param>
-        </when>
+            <when value='run'>
+                <param
+                    name='user_script_name'
+                    label='Script to Run'
+                    type='text'
+                    value='run_script.sh'
+                    help='Enter the script name which runs the ML model. Input is discarded if ML Model Setting is set to "Train".'
+                ></param>
+            </when>
     </conditional>
   </inputs>
 </tool>
