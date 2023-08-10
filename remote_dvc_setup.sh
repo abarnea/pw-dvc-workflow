@@ -56,5 +56,5 @@ then
     # Pulls any new DVC data
     dvc pull -r $storage_name
     # Runs the user configured script
-    bash $user_script_name
+    bash $model_user_script_name
 fi
