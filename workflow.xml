@@ -2,7 +2,7 @@
   <command interpreter='bash'>main.sh</command>
   <cancel interpreter='bash'>kill.sh</cancel>
   <inputs>
-  <section name="repo_setting" type='section' title="Repository Selection" expanded='true'>
+  <section name="git" type='section' title="Repository Selection" expanded='true'>
     <param 
         name='repo_name'
         label='Repository Name'
@@ -11,33 +11,26 @@
         help='Enter the DVC-configured Github repository that you would like to run.'
     ></param>
     <param
-        name='git_username'
+        name='username'
         label='Github Username'
         type='text'
         value='parallelworks'
         help='Enter the username of the owner of the above Github repository.'
     ></param>
     </section>
-    <section name="storage_settings" type='section' title="Storage Settings" expanded='true'>
+    <section name="storage" type='section' title="Storage Settings" expanded='true'>
     <param
-        name='storage_name'
+        name='name'
         label='DVC Remote Storage Name'
         type='text'
         value='mystorage'
         help='Type the name of your DVC-configured remote storage.'
     ></param>
     </section>
-    <section name='model_config' type='section' title='Model Configurations' expanded='true'>
-    <param
-        name='resource'
-        label='Resource Name'
-        type='computeResource'
-        value='Resource'
-        help='Select a resource to run your DVC-configured Github repository on.'
-    ></param>
+    <section name='model' type='section' title='Model Configurations' expanded='true'>
     <conditional name='model_setting_conditional'>
         <param
-            name='model_setting'
+            name='setting'
             type='select'
             label='ML Model Setting'
             help='Select whether you would like to train the ML model and push it to cloud, or download and run the model from cloud.'
@@ -57,5 +50,12 @@
             </when>
     </conditional>
     </section>
+    <param
+        name='resource'
+        label='Resource Name'
+        type='computeResource'
+        value='Resource'
+        help='Select a resource to run your DVC-configured Github repository on.'
+    ></param>
   </inputs>
 </tool>
