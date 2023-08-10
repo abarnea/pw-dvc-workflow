@@ -29,13 +29,13 @@ then
 fi
 
 # Grabs the inputted Github repository
-URL="git@github.com:/${git_username}/${repo_name}.git"
+URL="git@github.com:/${git_username}/${git_repo_name}.git"
 
 # Clone the inputted repository from SSH URL
 git clone $URL
 
 # Sets the current directory to the cloned repository
-cd $repo_name
+cd $git_repo_name
 
 # Sets the cloud storage bucket path
 # source ${resource_workdir}/storage_bucket.env
@@ -44,14 +44,15 @@ cd $repo_name
 # Cluster configuration
 dvc remote modify --local ${storage_name} credentialpath ${storage_bucket_path}
 
-if [ $model_setting = true ]
+if [ $model_setting == "train" ]
 then
     # Pulls any new DVC data and reproduces the ML model training pipeline
     dvc repro --pull
     # Push the newly trained ML model back to cloud storage according to the
     # initially set cloud storage bucket path
     dvc push
-else
+elif [ $model_setting == "run" ]
+then
     # Pulls any new DVC data
     dvc pull -r $storage_name
     # Runs the user configured script
