@@ -21,18 +21,14 @@ conda activate dvc_env
 # Normal installation doesn't work correctly
 pip install google-auth-oauthlib==0.5.3
 
-# Deletes a cloned copy of the input repository if it exists
-# Otherwise, continues
-if [ -d $repo_name ]
-then
-    rm -rf $repo_name
-fi
-
 # Grabs the inputted Github repository
 URL="git@github.com:/${git_username}/${git_repo_name}.git"
 
-# Clone the inputted repository from SSH URL
-git clone $URL
+# Clone the inputted repository from SSH URL if it doesn't already exist
+if [ ! -d $git_repo_name ]
+then
+    git clone $URL
+fi
 
 # Sets the current directory to the cloned repository
 cd $git_repo_name
@@ -44,17 +40,16 @@ cd $git_repo_name
 # Cluster configuration
 dvc remote modify --local ${storage_name} credentialpath ${storage_bucket_path}
 
+# Pulls any new DVC data and reproduces the ML model training pipeline
+dvc repro --pull
+
 if [ $model_setting == "train" ]
 then
-    # Pulls any new DVC data and reproduces the ML model training pipeline
-    dvc repro --pull
     # Push the newly trained ML model back to cloud storage according to the
     # initially set cloud storage bucket path
     dvc push
 elif [ $model_setting == "run" ]
 then
-    # Pulls any new DVC data
-    dvc pull -r $storage_name
     # Runs the user configured script
     bash $model_user_script_name
 fi
