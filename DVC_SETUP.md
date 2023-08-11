@@ -57,7 +57,7 @@ dvc stage add -n train \
 python src/create_model.py data/training_set
 ```
 
-This is an example of what your `dvc.yml` should look like afterwards:
+This is an example of what your `dvc.yaml` should look like afterwards:
 ```
 stages:
   train:
@@ -103,4 +103,6 @@ Basically, DVC checks to see if your dependencies/data have changed. If they hav
 
 The benefits of creating such a data pipeline lies in the ability to <i>reproduce</i> this pipeline whenever you want without having to waste time to re-train your model, since it's all cached and version tracked!
 
-To run this pipeline, simply type `dvc repro`, and the pipeline will launch! If you would like to pull updated data first before running the pipeline, you can run `dvc repro --pull` instead.
+Now, after running all of these commands and creating your stages, you will have both a `dvc.yaml` and `dvc.lock` file. The `dvc.yaml` file is the editable document containing your stages, and the `dvc.lock` file is a backend DVC file for reading your stage (DON'T EDIT THE LOCK FILE). You'll need to push these files to Github after creating the stages using `git add .gitignore data/.gitignore dvc.yaml` and `git commit -m "Define pipeline`.
+
+Finally, to run this pipeline, simply type `dvc repro`, and the pipeline will launch! If you would like to pull updated data first before running the pipeline, you can run `dvc repro --pull` instead.
